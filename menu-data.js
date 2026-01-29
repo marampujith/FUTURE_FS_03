@@ -1,0 +1,147 @@
+// Complete Menu Database with 10 Items Per Category
+const menuDatabase = {
+    starters: [
+        { name: "Rayalaseema Chicken Vepudu", price: 220, description: "Spicy country chicken fry with traditional Rayalaseema masala", ingredients: "Chicken, Red Chillies, Ginger-Garlic, Curry Leaves, Mustard Seeds, Turmeric, Garam Masala" },
+        { name: "Naatu Kodi Fry", price: 250, description: "Traditional country chicken fry with rustic spices", ingredients: "Country Chicken, Red Chilli Powder, Turmeric, Garlic, Onion, Coriander, Garam Masala" },
+        { name: "Chicken 65 (Rayalaseema Style)", price: 200, description: "Crispy fried chicken with spicy Rayalaseema marinade", ingredients: "Chicken, Yogurt, Red Chilli Powder, Ginger-Garlic, Curry Leaves, Lemon, Corn Flour" },
+        { name: "Kodi Pakodi", price: 180, description: "Crispy chicken fritters with traditional spices", ingredients: "Chicken, Besan Flour, Red Chilli Powder, Ajwain, Turmeric, Ginger-Garlic, Coriander" },
+        { name: "Mutton Sukka", price: 280, description: "Dry mutton preparation with coastal spices", ingredients: "Mutton, Coconut, Red Chillies, Pepper, Coriander Seeds, Garlic, Turmeric, Curry Leaves" },
+        { name: "Royyala Vepudu", price: 320, description: "Spicy prawn fry with Andhra coastal flavors", ingredients: "Prawns, Red Chilli Powder, Turmeric, Garlic, Lemon, Curry Leaves, Mustard Seeds" },
+        { name: "Fish Fry (Andhra Masala)", price: 240, description: "Crispy fish fry with traditional Andhra spices", ingredients: "Fish, Red Chilli Powder, Turmeric, Ginger-Garlic, Lemon, Rice Flour, Coriander" },
+        { name: "Egg Pakodi", price: 160, description: "Crispy egg fritters with gram flour coating", ingredients: "Eggs, Besan Flour, Red Chilli Powder, Ajwain, Turmeric, Coriander, Onion" },
+        { name: "Paneer 65", price: 180, description: "Crispy paneer cubes with spicy marinade", ingredients: "Paneer, Yogurt, Red Chilli Powder, Ginger-Garlic, Corn Flour, Curry Leaves, Lemon" },
+        { name: "Mushroom Pepper Fry", price: 170, description: "Peppery mushroom stir-fry with aromatic spices", ingredients: "Mushrooms, Black Pepper, Garlic, Onion, Turmeric, Coriander, Lemon" }
+    ],
+    breads: [
+        { name: "Tandoori Roti", price: 30, description: "Traditional clay oven baked flatbread", ingredients: "Whole Wheat Flour, Water, Salt, Yogurt, Ghee" },
+        { name: "Butter Roti", price: 40, description: "Soft roti brushed with butter", ingredients: "Whole Wheat Flour, Water, Salt, Butter, Yogurt" },
+        { name: "Plain Naan", price: 50, description: "Leavened flatbread from tandoor oven", ingredients: "Maida Flour, Yeast, Yogurt, Sugar, Salt, Ghee" },
+        { name: "Butter Naan", price: 60, description: "Soft naan topped with butter", ingredients: "Maida Flour, Yeast, Yogurt, Butter, Sugar, Salt" },
+        { name: "Garlic Naan", price: 70, description: "Naan topped with garlic and coriander", ingredients: "Maida Flour, Yeast, Yogurt, Garlic, Coriander, Butter, Salt" },
+        { name: "Chilli Garlic Naan", price: 80, description: "Spicy naan with green chilli and garlic", ingredients: "Maida Flour, Yeast, Yogurt, Green Chillies, Garlic, Butter, Coriander" },
+        { name: "Rumali Roti", price: 45, description: "Thin, soft handkerchief-like bread", ingredients: "Maida Flour, Milk, Eggs, Sugar, Salt, Ghee" },
+        { name: "Lachha Paratha", price: 55, description: "Layered flaky paratha with ghee", ingredients: "Whole Wheat Flour, Ghee, Salt, Carom Seeds, Water" },
+        { name: "Pudina Paratha", price: 60, description: "Mint-flavored layered paratha", ingredients: "Whole Wheat Flour, Fresh Mint, Ghee, Green Chillies, Salt, Water" },
+        { name: "Andhra Parotta", price: 65, description: "Flaky layered paratha with egg", ingredients: "Maida Flour, Eggs, Ghee, Sugar, Salt, Water" }
+    ],
+    biryani: [
+        { name: "Rayalaseema Chicken Biryani", price: 280, description: "Authentic Rayalaseema style chicken biryani", ingredients: "Basmati Rice, Chicken, Red Chillies, Ginger-Garlic, Mint, Coriander, Garam Masala, Ghee" },
+        { name: "Rayalaseema Mutton Biryani", price: 350, description: "Rich mutton biryani with traditional spices", ingredients: "Basmati Rice, Mutton, Red Chillies, Ginger-Garlic, Mint, Coriander, Garam Masala, Ghee" },
+        { name: "Naatu Kodi Biryani", price: 320, description: "Country chicken biryani with rustic flavors", ingredients: "Basmati Rice, Country Chicken, Red Chillies, Ginger-Garlic, Mint, Coriander, Garam Masala" },
+        { name: "Gongura Chicken Biryani", price: 300, description: "Tangy sorrel leaves chicken biryani", ingredients: "Basmati Rice, Chicken, Gongura Leaves, Red Chillies, Ginger-Garlic, Mint, Garam Masala" },
+        { name: "Gongura Mutton Biryani", price: 380, description: "Mutton biryani with tangy sorrel leaves", ingredients: "Basmati Rice, Mutton, Gongura Leaves, Red Chillies, Ginger-Garlic, Mint, Garam Masala" },
+        { name: "Ulavacharu Chicken Biryani", price: 340, description: "Horse gram flavored chicken biryani", ingredients: "Basmati Rice, Chicken, Ulavacharu, Red Chillies, Ginger-Garlic, Mint, Coriander" },
+        { name: "Kodi Pulao", price: 260, description: "Mild chicken pulao with aromatic spices", ingredients: "Basmati Rice, Chicken, Green Chillies, Ginger-Garlic, Mint, Coriander, Ghee" },
+        { name: "Keema Biryani", price: 290, description: "Minced meat biryani with spices", ingredients: "Basmati Rice, Minced Meat, Red Chillies, Ginger-Garlic, Mint, Coriander, Garam Masala" },
+        { name: "Prawns Biryani", price: 420, description: "Seafood biryani with fresh prawns", ingredients: "Basmati Rice, Prawns, Red Chillies, Ginger-Garlic, Mint, Coriander, Lemon, Ghee" },
+        { name: "Egg Dum Biryani", price: 220, description: "Egg biryani with dum cooking method", ingredients: "Basmati Rice, Eggs, Red Chillies, Ginger-Garlic, Mint, Coriander, Garam Masala" }
+    ],
+    combos: [
+        { name: "Rayalaseema Royal Combo", price: 650, description: "Chicken Biryani + Naatu Kodi Fry + Sweet Lassi", ingredients: "Basmati Rice, Chicken, Country Chicken, Yogurt, Red Chillies, Ginger-Garlic, Mint, Coriander, Garam Masala" },
+        { name: "Mutton Lovers Combo", price: 750, description: "Mutton Biryani + Mutton Sukka + Badam Milk", ingredients: "Basmati Rice, Mutton, Coconut, Red Chillies, Pepper, Almonds, Milk, Sugar, Cardamom" },
+        { name: "Veg Delight Combo", price: 450, description: "Veg Biryani + Paneer 65 + Sweet Lassi", ingredients: "Basmati Rice, Mixed Vegetables, Paneer, Yogurt, Red Chillies, Ginger-Garlic, Mint, Coriander" },
+        { name: "Family Feast Combo", price: 1200, description: "2 Biryani + 2 Starters + 2 Desserts + 4 Drinks", ingredients: "Basmati Rice, Chicken, Mutton, Mixed Vegetables, Paneer, Yogurt, Dry Fruits, Beverages" },
+        { name: "Spicy Challenge Combo", price: 550, description: "Extra Spicy Biryani + Chicken 65 + Masala Soda", ingredients: "Basmati Rice, Chicken, Extra Red Chillies, Ginger-Garlic, Mint, Coriander, Soda, Spices" },
+        { name: "Seafood Special Combo", price: 850, description: "Prawns Biryani + Fish Fry + Lime Soda", ingredients: "Basmati Rice, Prawns, Fish, Red Chillies, Ginger-Garlic, Mint, Coriander, Lemon, Soda" },
+        { name: "Executive Lunch Combo", price: 380, description: "Biryani + Starter + Dessert + Drink", ingredients: "Basmati Rice, Chicken, Mixed Vegetables, Yogurt, Dry Fruits, Beverages, Spices" },
+        { name: "Couples Combo", price: 890, description: "2 Biryani + 2 Starters + 2 Desserts", ingredients: "Basmati Rice, Chicken, Mutton, Mixed Vegetables, Paneer, Yogurt, Dry Fruits, Spices" },
+        { name: "Weekend Special Combo", price: 680, description: "Special weekend combo with premium items", ingredients: "Basmati Rice, Mixed Meats, Vegetables, Spices, Desserts, Beverages" },
+        { name: "Kids Combo", price: 320, description: "Mild flavors for children with sweets", ingredients: "Mild Spices, Chicken, Vegetables, Rice, Sweets, Beverages, Kid-Friendly" }
+    ],
+    royal: [
+        { name: "Royal Thali (Vegetarian)", price: 850, description: "Complete royal vegetarian feast with 12 items", ingredients: "Mixed Vegetables, Paneer, Dal, Rice, Roti, Papad, Pickle, Curd, Salad, Sweets, Beverages" },
+        { name: "Royal Thali (Non-Veg)", price: 1200, description: "Complete royal non-vegetarian feast with 15 items", ingredients: "Chicken, Mutton, Fish, Rice, Roti, Dal, Papad, Pickle, Curd, Salad, Sweets, Beverages" },
+        { name: "Maharaja Platter", price: 2500, description: "Exquisite royal platter for 4-6 persons", ingredients: "Premium Meats, Seafood, Vegetables, Rice, Breads, Sweets, Beverages, Dry Fruits, Nuts" },
+        { name: "Royal Biryani Bowl", price: 680, description: "Premium biryani with royal accompaniments", ingredients: "Premium Basmati Rice, Choice of Meat, Saffron, Dry Fruits, Nuts, Royal Spices, Ghee" },
+        { name: "Royal Dessert Platter", price: 450, description: "Assorted royal desserts for 4 persons", ingredients: "Dry Fruits, Nuts, Saffron, Cardamom, Milk, Sugar, Ghee, Traditional Sweets" },
+        { name: "Royal Family Feast", price: 3200, description: "Complete royal feast for 8-10 persons", ingredients: "Premium Meats, Seafood, Vegetables, Rice, Breads, Sweets, Beverages, Dry Fruits, Nuts" },
+        { name: "Royal Executive Lunch", price: 950, description: "Premium executive lunch with royal service", ingredients: "Premium Ingredients, Royal Spices, Saffron, Dry Fruits, Nuts, Ghee, Traditional Sweets" },
+        { name: "Royal Weekend Brunch", price: 1500, description: "Luxury weekend brunch with multiple courses", ingredients: "Premium Meats, Seafood, Vegetables, Rice, Breads, Sweets, Beverages, Dry Fruits" },
+        { name: "Royal Celebration Package", price: 5000, description: "Complete celebration package for special occasions", ingredients: "Premium Ingredients, Exotic Spices, Dry Fruits, Nuts, Saffron, Gold Leaf Service" },
+        { name: "Royal Business Lunch", price: 1200, description: "Professional business lunch with premium items", ingredients: "Premium Meats, Vegetables, Rice, Breads, Sweets, Beverages, Dry Fruits, Nuts" }
+    ],
+    ragi: [
+        { name: "Ragi Mudha (Traditional)", price: 2500, description: "Traditional Ragi Mudha for 10-12 persons", ingredients: "Ragi Flour, Jaggery, Water, Ghee, Cardamom, Dry Fruits, Nuts, Traditional Spices" },
+        { name: "Ragi Sangati Bowl", price: 320, description: "Ragi balls with traditional curry", ingredients: "Ragi Flour, Water, Salt, Chicken/Mutton Curry, Vegetables, Spices, Ghee" },
+        { name: "Ragi Dosa", price: 180, description: "Healthy Ragi dosa with chutney", ingredients: "Ragi Flour, Rice Flour, Water, Salt, Fermented Batter, Coconut Chutney, Tomato Chutney" },
+        { name: "Ragi Ambali", price: 120, description: "Traditional Ragi drink", ingredients: "Ragi Flour, Water, Buttermilk, Salt, Cumin, Coriander, Ginger, Curry Leaves" },
+        { name: "Ragi Ladoo", price: 200, description: "Sweet Ragi ladoos (6 pieces)", ingredients: "Ragi Flour, Jaggery, Ghee, Cardamom, Dry Fruits, Nuts, Coconut" },
+        { name: "Ragi Roti", price: 140, description: "Traditional Ragi flatbread", ingredients: "Ragi Flour, Water, Salt, Ghee, Cumin, Coriander" },
+        { name: "Ragi Upma", price: 160, description: "Healthy Ragi upma with vegetables", ingredients: "Ragi Flour, Vegetables, Onions, Green Chillies, Ginger, Coriander, Ghee" },
+        { name: "Ragi Porridge", price: 100, description: "Nutritious Ragi porridge with milk", ingredients: "Ragi Flour, Milk, Jaggery, Cardamom, Nuts, Ghee" },
+        { name: "Ragi Cookies", price: 220, description: "Healthy Ragi cookies with nuts", ingredients: "Ragi Flour, Butter, Sugar, Nuts, Cardamom, Baking Powder" },
+        { name: "Ragi Health Bowl", price: 280, description: "Complete Ragi health bowl with toppings", ingredients: "Ragi Flour, Vegetables, Sprouts, Nuts, Seeds, Yogurt, Honey" }
+    ],
+    spicy: [
+        { name: "Extra Spicy Chicken 65", price: 250, description: "🌶️🌶️🌶️ Extremely spicy", ingredients: "Chicken, Extra Red Chillies, Ghost Pepper, Ginger-Garlic, Corn Flour, Curry Leaves, Lemon" },
+        { name: "Fire Chicken Biryani", price: 380, description: "🔥🔥🔥 Hottest biryani in town", ingredients: "Basmati Rice, Chicken, Ghost Pepper, Red Chillies, Ginger-Garlic, Mint, Coriander, Ghee" },
+        { name: "Mirchi Ka Salan", price: 280, description: "🌶️ Extra hot green chili curry", ingredients: "Green Chillies, Peanuts, Sesame Seeds, Tamarind, Garlic, Ginger, Spices, Ghee" },
+        { name: "Spicy Andhra Chicken", price: 420, description: "🌶️ Traditional spicy preparation", ingredients: "Chicken, Red Chillies, Andhra Spices, Ginger-Garlic, Curry Leaves, Mustard Seeds, Turmeric" },
+        { name: "Ghost Pepper Challenge", price: 550, description: "👻🌶️ World's spiciest challenge", ingredients: "Chicken, Ghost Pepper, Carolina Reaper, Red Chillies, Ginger-Garlic, Spices, Cooling Yogurt" },
+        { name: "Natu Kodi Extra Spicy", price: 380, description: "🌶️🔥 Extra spicy country chicken", ingredients: "Country Chicken, Extra Red Chillies, Ghost Pepper, Ginger-Garlic, Curry Leaves, Spices" },
+        { name: "Dragon Fire Mutton", price: 480, description: "🐉🔥 Dragon fire mutton with extreme spice", ingredients: "Mutton, Dragon Chillies, Ghost Pepper, Red Chillies, Ginger-Garlic, Spices, Cooling Yogurt" },
+        { name: "Volcano Prawns", price: 520, description: "🌋🔥 Volcano hot prawns with lava spice", ingredients: "Prawns, Volcano Chillies, Red Chillies, Ginger-Garlic, Lemon, Spices, Cooling Drinks" },
+        { name: "Inferno Fish Curry", price: 440, description: "🔥🔥 Inferno hot fish curry with extreme spice", ingredients: "Fish, Inferno Chillies, Red Chillies, Ginger-Garlic, Tamarind, Spices, Cooling Yogurt" },
+        { name: "Hell Fire Vegetables", price: 320, description: "🔥🔥 Hell fire spicy vegetables for brave souls", ingredients: "Mixed Vegetables, Hell Fire Chillies, Red Chillies, Ginger-Garlic, Spices, Cooling Yogurt" }
+    ],
+    family: [
+        { name: "Family Pack Biryani", price: 1800, description: "Serves 6-8 persons", ingredients: "Basmati Rice, Choice of Meat, Vegetables, Spices, Ghee, Herbs, Serves 6-8 People" },
+        { name: "Family Starter Platter", price: 1200, description: "Assorted starters for 6-8 persons", ingredients: "Mixed Starters, Chicken, Mutton, Vegetables, Spices, Serves 6-8 People" },
+        { name: "Weekend Family Feast", price: 3500, description: "Complete meal for 8-10 persons", ingredients: "Complete Menu Items, Biryani, Starters, Desserts, Beverages, Serves 8-10 People" },
+        { name: "Kids Special Combo", price: 450, description: "Mild flavors for children", ingredients: "Mild Spices, Chicken, Vegetables, Rice, Sweets, Beverages, Kid-Friendly" },
+        { name: "Family Sunday Special", price: 2800, description: "Special Sunday family meal for 6-8 persons", ingredients: "Premium Meats, Vegetables, Rice, Breads, Sweets, Beverages, Serves 6-8 People" },
+        { name: "Family Celebration Pack", price: 4200, description: "Complete celebration package for 10-12 persons", ingredients: "Premium Meats, Seafood, Vegetables, Rice, Breads, Sweets, Beverages, Serves 10-12 People" },
+        { name: "Family Budget Meal", price: 1500, description: "Affordable family meal for 4-6 persons", ingredients: "Mixed Items, Vegetables, Rice, Breads, Sweets, Beverages, Serves 4-6 People" },
+        { name: "Family Weekend Brunch", price: 2200, description: "Weekend brunch for 6-8 persons", ingredients: "Mixed Items, Vegetables, Rice, Breads, Sweets, Beverages, Serves 6-8 People" },
+        { name: "Family Dinner Special", price: 1900, description: "Special dinner for 6-8 persons", ingredients: "Mixed Items, Vegetables, Rice, Breads, Sweets, Beverages, Serves 6-8 People" },
+        { name: "Family Picnic Pack", price: 1600, description: "Complete picnic pack for 4-6 persons", ingredients: "Mixed Items, Vegetables, Rice, Breads, Sweets, Beverages, Serves 4-6 People" }
+    ],
+    premium: [
+        { name: "Gold Plated Thali", price: 5000, description: "Luxury dining experience with gold service", ingredients: "Premium Ingredients, Gold Leaf Service, Exotic Spices, Imported Items, Luxury Presentation" },
+        { name: "Diamond Biryani", price: 3200, description: "Premium biryani with exotic ingredients", ingredients: "Premium Basmati, Exotic Meats, Saffron, Dry Fruits, Nuts, Imported Spices, Luxury Ingredients" },
+        { name: "Platinum Seafood Platter", price: 4500, description: "Exotic seafood selection", ingredients: "Exotic Seafood, Imported Fish, Lobster, Prawns, Crabs, Luxury Spices, Premium Ingredients" },
+        { name: "Royal Dessert Crown", price: 1800, description: "Luxury dessert collection", ingredients: "Premium Dry Fruits, Exotic Nuts, Saffron, Cardamom, Gold Leaf, Imported Ingredients" },
+        { name: "Executive Platinum Package", price: 8000, description: "Ultimate executive dining experience", ingredients: "Exotic Ingredients, Imported Spices, Gold Service, Premium Presentation, Luxury Items" },
+        { name: "Celebration Gold Package", price: 12000, description: "Complete celebration with gold service", ingredients: "Premium Ingredients, Gold Service, Exotic Spices, Luxury Presentation, Special Items" },
+        { name: "VIP Diamond Experience", price: 15000, description: "Ultimate VIP dining with diamond service", ingredients: "Exotic Ingredients, Imported Items, Diamond Service, Luxury Presentation, Special Items" },
+        { name: "Luxury Weekend Package", price: 6000, description: "Luxury weekend dining experience", ingredients: "Premium Ingredients, Exotic Spices, Luxury Service, Special Items, Premium Presentation" },
+        { name: "Premium Business Lunch", price: 3500, description: "Premium business lunch with luxury service", ingredients: "Premium Ingredients, Exotic Spices, Luxury Service, Special Items, Premium Presentation" },
+        { name: "Exclusive Royal Package", price: 20000, description: "Most exclusive royal dining experience", ingredients: "Exotic Ingredients, Imported Items, Royal Service, Luxury Presentation, Special Items" }
+    ],
+    specials: [
+        { name: "Ragi Sangati with Naatu Kodi Pulusu", price: 380, description: "Traditional Ragi balls with country chicken curry", ingredients: "Ragi Flour, Country Chicken, Red Chillies, Tamarind, Ginger-Garlic, Curry Leaves, Spices" },
+        { name: "Ragi Sangati with Mutton Pulusu", price: 450, description: "Ragi balls with mutton curry", ingredients: "Ragi Flour, Mutton, Red Chillies, Tamarind, Ginger-Garlic, Curry Leaves, Spices" },
+        { name: "Ulavacharu Chicken Curry", price: 420, description: "Horse gram flavored chicken curry", ingredients: "Chicken, Horse Gram, Red Chillies, Ginger-Garlic, Coriander, Spices, Ghee" },
+        { name: "Ulavacharu Mutton Curry", price: 480, description: "Mutton curry with horse gram", ingredients: "Mutton, Horse Gram, Red Chillies, Ginger-Garlic, Coriander, Spices, Ghee" },
+        { name: "Naatu Kodi Pulusu", price: 350, description: "Traditional country chicken curry", ingredients: "Country Chicken, Red Chillies, Tamarind, Ginger-Garlic, Curry Leaves, Spices" },
+        { name: "Rayalaseema Mutton Kura", price: 400, description: "Traditional Rayalaseema mutton curry", ingredients: "Mutton, Red Chillies, Ginger-Garlic, Coriander, Spices, Ghee, Curry Leaves" },
+        { name: "Gongura Chicken Curry", price: 320, description: "Tangy sorrel leaves chicken curry", ingredients: "Chicken, Gongura Leaves, Red Chillies, Ginger-Garlic, Spices, Ghee" },
+        { name: "Gongura Mutton Curry", price: 380, description: "Mutton curry with sorrel leaves", ingredients: "Mutton, Gongura Leaves, Red Chillies, Ginger-Garlic, Spices, Ghee" },
+        { name: "Pachi Pulusu", price: 180, description: "Raw tamarind soup", ingredients: "Tamarind, Raw Onion, Green Chillies, Coriander, Salt, Water" },
+        { name: "Royyala Pulusu", price: 360, description: "Prawn curry with tamarind", ingredients: "Prawns, Tamarind, Red Chillies, Ginger-Garlic, Coriander, Spices" }
+    ],
+    desserts: [
+        { name: "Pootharekulu", price: 150, description: "Traditional paper sweet", ingredients: "Rice Flour, Ghee, Sugar, Cardamom, Jaggery" },
+        { name: "Bobbatlu", price: 120, description: "Sweet flatbread with jaggery filling", ingredients: "Maida Flour, Jaggery, Chana Dal, Cardamom, Ghee" },
+        { name: "Ariselu", price: 100, description: "Traditional sweet rice cake", ingredients: "Rice Flour, Jaggery, Ghee, Cardamom, Sesame Seeds" },
+        { name: "Bellam Gavvalu", price: 110, description: "Sweet shell-shaped jaggery sweets", ingredients: "Rice Flour, Jaggery, Ghee, Cardamom, Ghee" },
+        { name: "Semiya Payasam", price: 90, description: "Vermicelli pudding with milk and nuts", ingredients: "Vermicelli, Milk, Sugar, Cardamom, Cashews, Raisins, Ghee" },
+        { name: "Paramannam", price: 85, description: "Traditional rice pudding with jaggery", ingredients: "Rice, Milk, Jaggery, Cardamom, Ghee, Nuts" },
+        { name: "Gulab Jamun", price: 95, description: "Soft milk balls in sugar syrup", ingredients: "Milk Powder, Flour, Sugar, Rose Water, Cardamom, Ghee" },
+        { name: "Double Ka Meetha", price: 130, description: "Sweet bread pudding with nuts", ingredients: "Bread, Milk, Sugar, Cardamom, Nuts, Ghee" },
+        { name: "Carrot Halwa", price: 105, description: "Sweet carrot pudding with nuts", ingredients: "Carrots, Milk, Sugar, Cardamom, Nuts, Ghee" },
+        { name: "Badam Payasam", price: 140, description: "Almond flavored rice pudding", ingredients: "Rice, Milk, Almonds, Sugar, Cardamom, Saffron, Ghee" }
+    ],
+    drinks: [
+        { name: "Mineral Water", price: 30, description: "Purified mineral water", ingredients: "Water, Minerals" },
+        { name: "Sweet Lassi", price: 60, description: "Sweet yogurt drink with cardamom", ingredients: "Yogurt, Milk, Sugar, Cardamom, Saffron, Ice" },
+        { name: "Salt Lassi", price: 55, description: "Salty yogurt drink with spices", ingredients: "Yogurt, Water, Salt, Cumin, Mint, Ice" },
+        { name: "Majjiga (Buttermilk)", price: 40, description: "Traditional buttermilk with spices", ingredients: "Buttermilk, Water, Salt, Cumin, Ginger, Curry Leaves" },
+        { name: "Badam Milk", price: 80, description: "Almond flavored milk with nuts", ingredients: "Milk, Almonds, Sugar, Cardamom, Saffron, Ice" },
+        { name: "Rose Milk", price: 70, description: "Rose flavored milk with nuts", ingredients: "Milk, Rose Syrup, Sugar, Nuts, Cardamom, Ice" },
+        { name: "Fresh Lime Water", price: 45, description: "Refreshing lime drink with mint", ingredients: "Lime, Water, Sugar, Mint, Salt, Ice" },
+        { name: "Lime Soda", price: 50, description: "Lime soda with mint and spices", ingredients: "Lime, Soda, Sugar, Mint, Salt, Ice" },
+        { name: "Masala Soda", price: 55, description: "Spiced soda with lemon and mint", ingredients: "Soda, Lemon, Mint, Spices, Sugar, Ice" },
+        { name: "Tender Coconut Water", price: 65, description: "Fresh tender coconut water", ingredients: "Tender Coconut, Water, Natural Sugars" }
+    ]
+};

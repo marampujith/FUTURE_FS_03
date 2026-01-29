@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - RAYALASEEMA RUCHULU</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-maroon: #722f37;
+            --wine-red: #9b2c3c;
+            --antique-gold: #d4af37;
+            --deep-black: #0a0a0a;
+            --royal-purple: #4a148c;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 50%, #2d0a0a 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cinzel-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Royal Background Effects */
+        .royal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(155, 44, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(114, 47, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--antique-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); }
+            100% { transform: translateY(-100px) translateX(100px); }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 20;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .royal-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--antique-gold), #fff, var(--antique-gold));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
+            animation: shimmer 3s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .royal-subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--antique-gold);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* Glass Morphism Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--antique-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Royal Buttons */
+        .royal-btn {
+            background: linear-gradient(135deg, var(--antique-gold), #b8941f);
+            color: var(--deep-black);
+            border: none;
+            border-radius: 50px;
+            padding: 18px 40px;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .royal-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .royal-btn:hover::before {
+            left: 100%;
+        }
+
+        .royal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+        }
+
+        .royal-btn-secondary {
+            background: transparent;
+            color: var(--antique-gold);
+            border: 2px solid var(--antique-gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .royal-btn-secondary:hover {
+            background: var(--antique-gold);
+            color: var(--deep-black);
+        }
+
+        /* Feature Cards */
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--antique-gold), #b8941f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--deep-black);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Navigation */
+        .royal-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .royal-nav.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        /* Stats Section */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--antique-gold);
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--antique-gold);
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .royal-title {
+                font-size: 3rem;
+            }
+            
+            .royal-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .glass-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--deep-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-top: 3px solid var(--antique-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2 class="cinzel-font text-2xl text-yellow-400">Preparing Royal Experience...</h2>
+        </div>
+    </div>
+
+    <!-- Royal Background Effects -->
+    <div class="royal-bg"></div>
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="royal-nav" id="navbar">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <div class="text-2xl font-bold text-yellow-400">
+                        <i class="fas fa-crown mr-2"></i>
+                        <span class="cinzel-font">RAYALASEEMA RUCHULU</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-yellow-200 hover:text-yellow-400 transition">Home</a>
+                    <a href="#features" class="text-yellow-200 hover:text-yellow-400 transition">Features</a>
+                    <a href="#about" class="text-yellow-200 hover:text-yellow-400 transition">About</a>
+                    <a href="#testimonials" class="text-yellow-200 hover:text-yellow-400 transition">Testimonials</a>
+                    <a href="#contact" class="text-yellow-200 hover:text-yellow-400 transition">Contact</a>
+                </div>
+                <button onclick="enterPOS()" class="royal-btn">
+                    <i class="fas fa-utensils mr-2"></i>Enter POS
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="royal-title heading-font">
+                RAYALASEEMA RUCHULU
+            </h1>
+            <p class="royal-subtitle cinzel-font">
+                Authentic Fine Dining Experience
+            </p>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Experience the bold, rustic, and fiery flavors of Rayalaseema. 
+                Every dish is prepared using traditional spices and age-old recipes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="enterPOS()" class="royal-btn pulse">
+                    <i class="fas fa-crown mr-2"></i>Enter Royal POS
+                </button>
+                <button onclick="scrollToSection('features')" class="royal-btn royal-btn-secondary">
+                    <i class="fas fa-info-circle mr-2"></i>Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 relative z-10">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="heading-font text-4xl font-bold text-yellow-400 mb-4">
+                    Royal POS Features
+                </h2>
+                <p class="cinzel-font text-xl text-gray-300">
+                    Enterprise-Grade Restaurant Management System
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card slide-in-left">
+                    <div class="feature-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                        Dual Mode System
+                    </h3>
+                    <p class="text-gray-300">
+                        Unified POS with Staff and Customer modes. Real-time synchronization between in-store and online ordering.
+                    </p>
+                </div>
+
+                <div class="glass-card slide-in-left" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                        Royal Interface
+                    </h3>
+                    <p class="text-gray-300">
+                        Premium glass-morphism design with antique gold accents. Luxury user experience that impresses customers.
+                    </p>
+                </div>
+
+                <div class="glass-card slide-in-left" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                        Real-Time Sync
+                    </h3>
+                    <p class="text-gray-300">
+                        Instant order synchronization between customer orders and staff dashboard. No delays, no confusion.
+                    </p>
+                </div>
+
+                <div class="glass-card slide-in-right" style="animation-delay: 0.6s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                        Smart Billing
+                    </h3>
+                    <p class="text-gray-300">
+                        Automated GST calculations, service charges, and professional receipt generation. Multiple payment methods.
+                    </p>
+                </div>
+
+                <div class="glass-card slide-in-right" style="animation-delay: 0.8s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                        Business Analytics
+                    </h3>
+                    <p class="text-gray-300">
+                        Real-time revenue tracking, customer data management, and menu performance analytics.
+                    </p>
+                </div>
+
+                <div class="glass-card slide-in-right" style="animation-delay: 1s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                        Multi-Device Ready
+                    </h3>
+                    <p class="text-gray-300">
+                        Tablet-optimized for staff, mobile-friendly for customers. Works seamlessly across all devices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 relative z-10">
+        <div class="container mx-auto px-8">
+            <div class="glass-card">
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="stat-number" data-target="150">0</div>
+                        <p class="text-gray-300 mt-2">Menu Items</p>
+                    </div>
+                    <div>
+                        <div class="stat-number" data-target="500">0</div>
+                        <p class="text-gray-300 mt-2">Daily Orders</p>
+                    </div>
+                    <div>
+                        <div class="stat-number" data-target="50">0</div>
+                        <p class="text-gray-300 mt-2">Tables</p>
+                    </div>
+                    <div>
+                        <div class="stat-number" data-target="99">0</div>
+                        <p class="text-gray-300 mt-2">% Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative z-10">
+        <div class="container mx-auto px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="slide-in-left">
+                    <h2 class="heading-font text-4xl font-bold text-yellow-400 mb-6">
+                        About Rayalaseema Ruchulu
+                    </h2>
+                    <p class="text-gray-300 mb-6">
+                        Welcome to Rayalaseema Ruchulu, where authentic flavors meet royal dining. 
+                        Our restaurant brings you the true taste of Rayalaseema cuisine, prepared with 
+                        traditional spices and age-old recipes passed down through generations.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        Our Royal POS System represents the perfect fusion of traditional hospitality 
+                        and modern technology. Designed for excellence, engineered for perfection.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-yellow-400 text-xl"></i>
+                            <span class="text-gray-300">Authentic Recipes</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-yellow-400 text-xl"></i>
+                            <span class="text-gray-300">Premium Ingredients</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-yellow-400 text-xl"></i>
+                            <span class="text-gray-300">Royal Service</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-yellow-400 text-xl"></i>
+                            <span class="text-gray-300">Modern Technology</span>
+                        </div>
+                    </div>
+                    <button onclick="enterPOS()" class="royal-btn">
+                        <i class="fas fa-crown mr-2"></i>Experience Excellence
+                    </button>
+                </div>
+                <div class="slide-in-right">
+                    <div class="glass-card p-8">
+                        <img src="https://via.placeholder.com/600x400/722f37/d4af37?text=Royal+Dining+Experience" 
+                             alt="Royal Dining" 
+                             class="w-full rounded-lg mb-6">
+                        <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                            Our Royal Promise
+                        </h3>
+                        <p class="text-gray-300">
+                            Every dish is a masterpiece, every service is royal, and every experience is unforgettable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 relative z-10">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-4xl font-bold text-yellow-400 mb-4">
+                    What Our Customers Say
+                </h2>
+                <p class="cinzel-font text-xl text-gray-300">
+                    Royal experiences shared by our valued guests
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60/d4af37/000000?text=JD" 
+                             alt="Customer" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-yellow-400">John Doe</h4>
+                            <div class="text-yellow-300">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "The Royal POS System is incredible! So smooth and elegant. 
+                        The food is absolutely authentic and the service is fit for royalty."
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60/d4af37/000000?text=SM" 
+                             alt="Customer" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-yellow-400">Sarah Miller</h4>
+                            <div class="text-yellow-300">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "Ordering online is so easy with their system! The interface is beautiful 
+                        and the food arrives perfectly packed and still hot."
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60/d4af37/000000?text=RK" 
+                             alt="Customer" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-yellow-400">Raj Kumar</h4>
+                            <div class="text-yellow-300">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "The best Rayalaseema food I've ever had! The royal ambiance and 
+                        the modern POS system make dining here a truly premium experience."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative z-10">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-4xl font-bold text-yellow-400 mb-4">
+                    Visit Us Today
+                </h2>
+                <p class="cinzel-font text-xl text-gray-300">
+                    Experience royal dining at its finest
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="glass-card">
+                    <h3 class="cinzel-font text-2xl font-bold text-yellow-400 mb-6">
+                        Get in Touch
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-map-marker-alt text-yellow-400 text-xl w-6"></i>
+                            <span class="text-gray-300">123 Royal Street, Hyderabad, Telangana 500001</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-phone text-yellow-400 text-xl w-6"></i>
+                            <span class="text-gray-300">+91 98765 43210</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-envelope text-yellow-400 text-xl w-6"></i>
+                            <span class="text-gray-300">royal@rayalaseemaruchulu.com</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-clock text-yellow-400 text-xl w-6"></i>
+                            <span class="text-gray-300">Open: 11:00 AM - 11:00 PM (All Days)</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold text-yellow-400 mb-4">Follow Us</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-yellow-400 hover:text-yellow-300 transition">
+                                <i class="fab fa-facebook text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-yellow-400 hover:text-yellow-300 transition">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-yellow-400 hover:text-yellow-300 transition">
+                                <i class="fab fa-twitter text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-yellow-400 hover:text-yellow-300 transition">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h3 class="cinzel-font text-2xl font-bold text-yellow-400 mb-6">
+                        Operating Hours
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Monday - Friday</span>
+                            <span class="text-yellow-400">11:00 AM - 11:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Saturday - Sunday</span>
+                            <span class="text-yellow-400">11:00 AM - 12:00 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-6 bg-gradient-to-r from-yellow-400/10 to-yellow-400/5 rounded-lg border border-yellow-400/30">
+                        <h4 class="font-bold text-yellow-400 mb-2">
+                            <i class="fas fa-crown mr-2"></i>Special Offer
+                        </h4>
+                        <p class="text-gray-300 mb-4">
+                            Get 10% off on your first order when you use our Royal POS System!
+                        </p>
+                        <button onclick="enterPOS()" class="royal-btn w-full">
+                            <i class="fas fa-gift mr-2"></i>Claim Offer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-yellow-400/30 relative z-10">
+        <div class="container mx-auto px-8">
+            <div class="text-center">
+                <h3 class="cinzel-font text-2xl font-bold text-yellow-400 mb-4">
+                    RAYALASEEMA RUCHULU
+                </h3>
+                <p class="text-gray-300 mb-6">
+                    Experience the bold, rustic, and fiery flavors of Rayalaseema
+                </p>
+                <p class="text-sm text-gray-400">
+                    © 2024 Rayalaseema Ruchulu. All rights reserved. | Royal POS System v1.0
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize particles
+        function initializeParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Hide loader when page loads
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Enter POS System
+        function enterPOS() {
+            window.location.href = 'royal-system.html';
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animate stats on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 20);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    
+                    // Trigger stats animation when stats section is visible
+                    if (entry.target.querySelector('.stat-number')) {
+                        animateStats();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeParticles();
+            
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                observer.observe(el);
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

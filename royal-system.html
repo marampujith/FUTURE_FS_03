@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>RAYALASEEMA RUCHULU – Royal POS System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-maroon: #722f37;
+            --wine-red: #9b2c3c;
+            --antique-gold: #d4af37;
+            --deep-black: #0a0a0a;
+            --royal-purple: #4a148c;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 50%, #2d0a0a 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cinzel-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Royal Background Effects */
+        .royal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(155, 44, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(114, 47, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--antique-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 20s infinite linear;
+        }
+
+        .chili-particle {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.1;
+            animation: floatSpicy 25s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+            100% { transform: translateY(-100px) translateX(100px) rotate(360deg); }
+        }
+
+        @keyframes floatSpicy {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+            100% { transform: translateY(-100px) translateX(-100px) rotate(-360deg); }
+        }
+
+        /* Glass Morphism Panels */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 0 1px rgba(212, 175, 55, 0.1);
+        }
+
+        .glass-panel-gold {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--antique-gold);
+            border-radius: 20px;
+            box-shadow: 
+                0 8px 32px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Royal Header */
+        .royal-header {
+            background: linear-gradient(135deg, var(--royal-maroon) 0%, var(--wine-red) 50%, var(--royal-purple) 100%);
+            border-bottom: 2px solid var(--antique-gold);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .royal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--antique-gold), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Royal Buttons */
+        .royal-btn {
+            background: linear-gradient(135deg, var(--antique-gold), #b8941f);
+            color: var(--deep-black);
+            border: none;
+            border-radius: 12px;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .royal-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .royal-btn:hover::before {
+            left: 100%;
+        }
+
+        .royal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .royal-btn-secondary {
+            background: transparent;
+            color: var(--antique-gold);
+            border: 2px solid var(--antique-gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .royal-btn-secondary:hover {
+            background: var(--antique-gold);
+            color: var(--deep-black);
+        }
+
+        /* Category Cards */
+        .category-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(212, 175, 55, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--antique-gold);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .category-card.active {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border-color: var(--antique-gold);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Menu Items */
+        .menu-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            border-color: var(--antique-gold);
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--antique-gold);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Cart Items */
+        .cart-item {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cart-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--antique-gold);
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* Quantity Controls */
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 25px;
+            padding: 4px;
+        }
+
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: var(--antique-gold);
+            color: var(--deep-black);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .quantity-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Form Elements */
+        .royal-input {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .royal-input:focus {
+            outline: none;
+            border-color: var(--antique-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .royal-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .royal-input option {
+            background: var(--royal-maroon);
+            color: white;
+            padding: 8px;
+        }
+
+        /* Order Status */
+        .order-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-preparing {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .status-ready {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+
+        .status-completed {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--antique-gold);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+            to { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+        }
+
+        /* Success Animation */
+        .success-animation {
+            animation: successPulse 0.6s ease;
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .glass-panel {
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .category-card {
+                padding: 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .menu-item {
+                padding: 0.75rem;
+                margin: 0.5rem 0;
+            }
+            
+            .menu-item h4 {
+                font-size: 0.875rem;
+            }
+            
+            .menu-item p {
+                font-size: 0.75rem;
+            }
+            
+            .quantity-btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+            
+            .royal-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .btn-primary {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .royal-input {
+                padding: 0.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .mode-toggle {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .cinzel-font {
+                font-size: 1.5rem;
+            }
+            
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+            
+            .text-xl {
+                font-size: 1.125rem;
+            }
+            
+            .text-lg {
+                font-size: 1rem;
+            }
+            
+            .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid.md\:grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .grid.md\:grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .flex.md\:flex-row {
+                flex-direction: column;
+            }
+            
+            .w-full.md\:w-1\/2 {
+                width: 100%;
+            }
+            
+            .w-full.md\:w-1\/3 {
+                width: 100%;
+            }
+            
+            .w-full.md\:w-2\/3 {
+                width: 100%;
+            }
+            
+            .w-full.md\:w-1\/4 {
+                width: 100%;
+            }
+            
+            .w-full.md\:w-3\/4 {
+                width: 100%;
+            }
+            
+            .hidden.md\:block {
+                display: block;
+            }
+            
+            .block.md\:hidden {
+                display: none;
+            }
+            
+            .order-2.md\:order-1 {
+                order: 1;
+            }
+            
+            .order-1.md\:order-2 {
+                order: 2;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .glass-panel {
+                padding: 0.75rem;
+                margin: 0.25rem;
+            }
+            
+            .category-card {
+                padding: 0.75rem;
+                font-size: 0.75rem;
+            }
+            
+            .menu-item {
+                padding: 0.5rem;
+                margin: 0.25rem 0;
+            }
+            
+            .menu-item h4 {
+                font-size: 0.75rem;
+            }
+            
+            .menu-item p {
+                font-size: 0.625rem;
+            }
+            
+            .quantity-btn {
+                padding: 0.125rem 0.25rem;
+                font-size: 0.625rem;
+            }
+            
+            .royal-btn {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.75rem;
+            }
+            
+            .btn-primary {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.75rem;
+            }
+            
+            .royal-input {
+                padding: 0.375rem;
+                font-size: 0.75rem;
+            }
+            
+            .mode-toggle {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.75rem;
+            }
+            
+            .cinzel-font {
+                font-size: 1.25rem;
+            }
+            
+            .text-2xl {
+                font-size: 1rem;
+            }
+            
+            .text-xl {
+                font-size: 0.875rem;
+            }
+            
+            .text-lg {
+                font-size: 0.75rem;
+            }
+            
+            .text-sm {
+                font-size: 0.625rem;
+            }
+            
+            .text-xs {
+                font-size: 0.5rem;
+            }
+            
+            .p-6 {
+                padding: 0.75rem;
+            }
+            
+            .p-8 {
+                padding: 1rem;
+            }
+            
+            .p-10 {
+                padding: 1.25rem;
+            }
+            
+            .p-12 {
+                padding: 1.5rem;
+            }
+            
+            .m-4 {
+                margin: 0.5rem;
+            }
+            
+            .m-6 {
+                margin: 0.75rem;
+            }
+            
+            .m-8 {
+                margin: 1rem;
+            }
+            
+            .gap-4 {
+                gap: 0.5rem;
+            }
+            
+            .gap-6 {
+                gap: 0.75rem;
+            }
+            
+            .gap-8 {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .category-card {
+                padding: 0.5rem;
+                font-size: 0.625rem;
+            }
+            
+            .menu-item {
+                padding: 0.375rem;
+                margin: 0.125rem 0;
+            }
+            
+            .menu-item h4 {
+                font-size: 0.625rem;
+            }
+            
+            .menu-item p {
+                font-size: 0.5rem;
+            }
+            
+            .quantity-btn {
+                padding: 0.125rem 0.125rem;
+                font-size: 0.5rem;
+            }
+            
+            .royal-btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.625rem;
+            }
+            
+            .btn-primary {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.625rem;
+            }
+            
+            .royal-input {
+                padding: 0.25rem;
+                font-size: 0.625rem;
+            }
+            
+            .mode-toggle {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.625rem;
+            }
+            
+            .cinzel-font {
+                font-size: 1rem;
+            }
+            
+            .text-2xl {
+                font-size: 0.875rem;
+            }
+            
+            .text-xl {
+                font-size: 0.75rem;
+            }
+            
+            .text-lg {
+                font-size: 0.625rem;
+            }
+            
+            .text-sm {
+                font-size: 0.5rem;
+            }
+            
+            .text-xs {
+                font-size: 0.375rem;
+            }
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-top: 3px solid var(--antique-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mode Toggle */
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .mode-switch {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 6px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .mode-option {
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .mode-option.active {
+            background: var(--antique-gold);
+            color: var(--deep-black);
+        }
+
+        /* Order Queue */
+        .order-queue-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .order-queue-item:hover {
+            border-color: var(--antique-gold);
+            transform: translateY(-2px);
+        }
+
+        .order-queue-item.new {
+            animation: slideInRight 0.6s ease, glow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Royal Background Effects -->
+    <div class="royal-bg"></div>
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Mode Toggle -->
+    <div class="mode-toggle">
+        <div class="mode-switch glass-panel">
+            <div class="mode-option active" onclick="switchMode('staff')">
+                <i class="fas fa-user-tie mr-2"></i>Staff POS
+            </div>
+            <div class="mode-option" onclick="switchMode('customer')">
+                <i class="fas fa-shopping-cart mr-2"></i>Customer
+            </div>
+        </div>
+    </div>
+
+    <!-- Royal Header -->
+    <header class="royal-header py-6 px-8">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-6">
+                    <div class="text-center">
+                        <h1 class="heading-font text-3xl font-black text-white mb-2">
+                            RAYALASEEMA <span class="text-yellow-400">RUCHULU</span>
+                        </h1>
+                        <p class="cinzel-font text-sm text-yellow-200 tracking-wider">
+                            Unified Royal POS System
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="text-right">
+                        <div class="text-xs text-yellow-200">System Status</div>
+                        <div class="text-green-400 font-semibold">
+                            <i class="fas fa-circle text-xs mr-2"></i>Online
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-yellow-200">Current Time</div>
+                        <div class="text-white font-semibold" id="currentTime">--:--:--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-4 relative z-10">
+        <!-- Staff POS Mode -->
+        <section id="staffPOS" class="fade-in">
+            <div class="grid lg:grid-cols-3 gap-4">
+                <!-- Left Panel - Order Entry -->
+                <div class="lg:col-span-2">
+                    <div class="glass-panel p-4 mb-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="cinzel-font text-xl font-bold text-yellow-400">
+                                <i class="fas fa-utensils mr-2"></i>Order Management
+                            </h2>
+                            <div class="flex gap-2">
+                                <select id="tableNumber" class="royal-input w-32 text-yellow-400 text-sm">
+                                    <option value="">👑 Table</option>
+                                    <option value="1">🍽️ 1</option>
+                                    <option value="2">🍽️ 2</option>
+                                    <option value="3">🍽️ 3</option>
+                                    <option value="4">🍽️ 4</option>
+                                    <option value="5">🍽️ 5</option>
+                                    <option value="6">👑 VIP</option>
+                                    <option value="7">👑 RS1</option>
+                                    <option value="8">👑 RS2</option>
+                                    <option value="9">🍽️ 9</option>
+                                    <option value="10">🍽️ 10</option>
+                                </select>
+                                <select id="orderType" class="royal-input w-32 text-yellow-400 text-sm">
+                                    <option value="dinein">🍽️ Dine-in</option>
+                                    <option value="pickup">🥡 Pickup</option>
+                                    <option value="delivery">🚚 Delivery</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Customer Info -->
+                        <div class="grid md:grid-cols-2 gap-2 mb-4">
+                            <div>
+                                <label class="block text-yellow-200 mb-1 text-xs">Customer Name</label>
+                                <input type="text" id="customerName" class="royal-input w-full text-sm" placeholder="Enter name">
+                            </div>
+                            <div>
+                                <label class="block text-yellow-200 mb-1 text-xs">Phone Number</label>
+                                <input type="tel" id="customerPhone" class="royal-input w-full text-sm" placeholder="Enter phone">
+                            </div>
+                        </div>
+
+                        <!-- Category Buttons -->
+                        <div class="mb-4">
+                            <h3 class="cinzel-font text-lg font-semibold text-yellow-400 mb-2">Menu Categories</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                <div class="category-card p-2" onclick="selectCategory('starters')">
+                                    <i class="fas fa-drumstick-bite text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Starters</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('breads')">
+                                    <i class="fas fa-bread-slice text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Breads</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('biryani')">
+                                    <i class="fas fa-bowl-food text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Biryani</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('specials')">
+                                    <i class="fas fa-star text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Specials</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('desserts')">
+                                    <i class="fas fa-ice-cream text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Desserts</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('drinks')">
+                                    <i class="fas fa-glass-water text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Drinks</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('combos')">
+                                    <i class="fas fa-box text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Combos</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('royal')">
+                                    <i class="fas fa-crown text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Royal</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('ragi')">
+                                    <i class="fas fa-seedling text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Ragi</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('spicy')">
+                                    <i class="fas fa-fire text-xl text-red-500 mb-1"></i>
+                                    <div class="font-semibold text-xs">Spicy</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('family')">
+                                    <i class="fas fa-users text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Family</div>
+                                </div>
+                                <div class="category-card p-2" onclick="selectCategory('premium')">
+                                    <i class="fas fa-gem text-xl text-yellow-400 mb-1"></i>
+                                    <div class="font-semibold text-xs">Premium</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Menu Items -->
+                        <div class="glass-panel p-6">
+                            <h3 class="cinzel-font text-lg font-semibold text-yellow-400 mb-4">Menu Items</h3>
+                            <div id="menuItems" class="max-h-96 overflow-y-auto space-y-3">
+                                <!-- Menu items will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Queue -->
+                    <div class="glass-panel p-8">
+                        <h2 class="cinzel-font text-2xl font-bold text-yellow-400 mb-6">
+                            <i class="fas fa-list-ul mr-3"></i>Active Orders
+                        </h2>
+                        <div id="orderQueue" class="space-y-4 max-h-96 overflow-y-auto">
+                            <!-- Active orders will appear here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel - Bill Summary -->
+                <div class="lg:col-span-1">
+                    <div class="glass-panel-gold p-8 sticky top-8">
+                        <h2 class="cinzel-font text-2xl font-bold text-yellow-400 mb-6">
+                            <i class="fas fa-receipt mr-3"></i>Bill Summary
+                        </h2>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-yellow-200">Order ID:</span>
+                                <span class="font-bold text-white" id="orderId">ORD-001</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-yellow-200">Table:</span>
+                                <span class="font-bold text-white" id="selectedTable">-</span>
+                            </div>
+                        </div>
+
+                        <div id="cartItems" class="mb-6 max-h-80 overflow-y-auto space-y-3">
+                            <!-- Cart items will be populated here -->
+                        </div>
+
+                        <div class="border-t border-yellow-400/30 pt-6 space-y-4">
+                            <div class="flex justify-between">
+                                <span class="text-yellow-200">Subtotal:</span>
+                                <span class="font-bold text-white" id="subtotal">₹0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-yellow-200">GST (5%):</span>
+                                <span class="font-bold text-white" id="gst">₹0</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-yellow-200">Service Charge:</span>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="serviceCharge" class="mr-2">
+                                    <span class="font-bold text-white" id="serviceAmount">₹0</span>
+                                </label>
+                            </div>
+                            <div class="flex justify-between text-xl font-bold text-yellow-400 border-t border-yellow-400/30 pt-4">
+                                <span>Grand Total:</span>
+                                <span id="grandTotal">₹0</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 space-y-4">
+                            <div>
+                                <label class="block text-yellow-200 mb-2 text-sm">Payment Method</label>
+                                <select id="paymentMode" class="royal-input w-full">
+                                    <option value="cash">💵 Cash</option>
+                                    <option value="upi">📱 UPI</option>
+                                    <option value="card">💳 Card</option>
+                                </select>
+                            </div>
+
+                            <button onclick="generateBill()" class="w-full btn-primary ripple">
+                                <i class="fas fa-print mr-2"></i>Print Bill
+                            </button>
+                            <button onclick="clearCart()" class="royal-btn royal-btn-secondary w-full">
+                                <i class="fas fa-trash mr-2"></i>Clear Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer POS Mode (Hidden by default) -->
+        <section id="customerPOS" class="hidden fade-in">
+            <div class="max-w-6xl mx-auto">
+                <!-- Customer Header -->
+                <div class="text-center mb-6">
+                    <h2 class="heading-font text-3xl font-black text-white mb-2">
+                        Order Online
+                    </h2>
+                    <p class="cinzel-font text-lg text-yellow-200">
+                        Experience authentic Rayalaseema flavors at your convenience
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-4">
+                    <!-- Menu Section -->
+                    <div class="lg:col-span-2">
+                        <div class="glass-panel p-4">
+                            <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                                <i class="fas fa-utensils mr-2"></i>Our Menu
+                            </h3>
+
+                            <!-- Customer Category Tabs -->
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('starters')">
+                                    🌶️ Starters
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('breads')">
+                                    🫓 Breads
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('biryani')">
+                                    🍚 Biryani
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('specials')">
+                                    🌶️ Specials
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('desserts')">
+                                    🍮 Desserts
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('drinks')">
+                                    🥤 Drinks
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('combos')">
+                                    📦 Combos
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('royal')">
+                                    👑 Royal
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('ragi')">
+                                    🌾 Ragi
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('spicy')">
+                                    🔥 Spicy
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('family')">
+                                    👨‍👩‍👧‍👦 Family
+                                </button>
+                                <button class="royal-btn royal-btn-secondary text-xs px-2 py-1" onclick="selectCustomerCategory('premium')">
+                                    💎 Premium
+                                </button>
+                            </div>
+
+                            <!-- Customer Menu Items -->
+                            <div id="customerMenuItems" class="grid gap-4">
+                                <!-- Customer menu items will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Cart Section -->
+                    <div class="lg:col-span-1">
+                        <div class="glass-panel-gold p-6 sticky top-8">
+                            <h3 class="cinzel-font text-xl font-bold text-yellow-400 mb-4">
+                                <i class="fas fa-shopping-cart mr-2"></i>Your Order
+                            </h3>
+
+                            <!-- Customer Info -->
+                            <div class="mb-6 space-y-4">
+                                <div>
+                                    <label class="block text-yellow-200 mb-2 text-sm">Your Name *</label>
+                                    <input type="text" id="custName" class="royal-input w-full" placeholder="Enter your name">
+                                </div>
+                                <div>
+                                    <label class="block text-yellow-200 mb-2 text-sm">Phone Number *</label>
+                                    <input type="tel" id="custPhone" class="royal-input w-full" placeholder="+91 98765 43210">
+                                </div>
+                                <div>
+                                    <label class="block text-yellow-200 mb-2 text-sm">Order Type</label>
+                                    <select id="custOrderType" class="royal-input w-full" onchange="toggleAddressField()">
+                                        <option value="delivery">🚚 Home Delivery</option>
+                                        <option value="pickup">🥡 Self Pickup</option>
+                                    </select>
+                                </div>
+                                <div id="addressField">
+                                    <label class="block text-yellow-200 mb-2 text-sm">Delivery Address</label>
+                                    <textarea id="custAddress" class="royal-input w-full" rows="3" placeholder="Enter your address"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Customer Cart Items -->
+                            <div id="customerCartItems" class="mb-6 max-h-64 overflow-y-auto space-y-3">
+                                <!-- Customer cart items will be populated here -->
+                            </div>
+
+                            <!-- Customer Bill Summary -->
+                            <div class="border-t border-yellow-400/30 pt-6 space-y-4">
+                                <div class="flex justify-between">
+                                    <span class="text-yellow-200">Subtotal:</span>
+                                    <span class="font-bold text-white" id="custSubtotal">₹0</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-yellow-200">GST (5%):</span>
+                                    <span class="font-bold text-white" id="custGST">₹0</span>
+                                </div>
+                                <div id="custDeliveryCharge" class="flex justify-between" style="display: none;">
+                                    <span class="text-yellow-200">Delivery:</span>
+                                    <span class="font-bold text-white">₹50</span>
+                                </div>
+                                <div class="flex justify-between text-xl font-bold text-yellow-400 border-t border-yellow-400/30 pt-4">
+                                    <span>Total:</span>
+                                    <span id="custTotal">₹0</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 space-y-4">
+                                <div>
+                                    <label class="block text-yellow-200 mb-2 text-sm">Payment Method</label>
+                                    <select id="custPaymentMode" class="royal-input w-full">
+                                        <option value="upi">📱 UPI Payment</option>
+                                        <option value="cod">💵 Cash on Delivery</option>
+                                        <option value="card">💳 Card Payment</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-yellow-200 mb-2 text-sm">Special Instructions</label>
+                                    <textarea id="custInstructions" class="royal-input w-full" rows="3" placeholder="Spice level, extra gravy, etc."></textarea>
+                                </div>
+
+                                <button onclick="placeCustomerOrder()" class="royal-btn w-full">
+                                    <i class="fas fa-check-circle mr-2"></i>Place Order
+                                </button>
+                                <button onclick="clearCustomerCart()" class="royal-btn royal-btn-secondary w-full">
+                                    <i class="fas fa-trash mr-2"></i>Clear Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+        <div class="glass-panel-gold p-12 max-w-md w-full mx-4 text-center success-animation">
+            <div class="text-6xl text-yellow-400 mb-6">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="cinzel-font text-2xl font-bold text-yellow-400 mb-4">Order Successful!</h3>
+            <p class="text-white mb-6" id="successMessage">Your order has been placed successfully.</p>
+            <button onclick="closeSuccessModal()" class="royal-btn">
+                <i class="fas fa-thumbs-up mr-2"></i>Awesome!
+            </button>
+        </div>
+    </div>
+
+    <script src="menu-data.js"></script>
+    <script src="royal-pos.js"></script>
+</body>
+</html>
